@@ -17,7 +17,7 @@ namespace Academy_test_task_1
 
             while (task == true)
             {
-                Console.WriteLine("Вивід викладачів: ВВедіть 1; \t \t \t Вивід студентів: ВВедіть 2\nОчистити консоль: Введіть 3 \t \t \t Закрити програму: Введіть 4\n");
+                Console.WriteLine("Вивiд викладачiв: ВВедiть 1 \t \t \t Вивiд студентiв:  ВВедiть 2\nОчистити консоль: Введiть 3 \t \t \t Закрити програму: Введiть 4\n");
                 string caseSwitch = Console.ReadLine();
 
                 switch (Int32.Parse(caseSwitch))
