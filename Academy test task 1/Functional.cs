@@ -24,17 +24,17 @@ namespace Academy_test_task_1
             };
 
         List<Student> standart_students = new List<Student>
-        {
-            new Student ("Валентин",    "Гарматюк",         "14.02.1998",     Gender.Male ,       1, 1,   4,     60),
-            new Student ("Олег",        "Момотюк",          "22.07.1998",     Gender.Male ,       2, 2,   4,     90),
-            new Student ("Вiталiй",     "Кухарук",          "25.08.1998",     Gender.Male ,       3, 3,   4,     60),
-            new Student ("Роман",       "Капустинський",    "20.06.1998",     Gender.Male ,       4, 4,   4,     85),
-            new Student ("Михайло",     "Хомолюк",          "10.10.1998",     Gender.Male ,       5, 5,   4,     75),
-            new Student ("Роман",       "Сидорчук",         "10.12.1998",     Gender.Male ,       6, 6,   4,     60),
-            new Student ("Зоряна",      "Щирба",            "13.05.1998",     Gender.Male ,       7, 7,   4,     89),
-            new Student ("Юрiй",        "Радовець",         "29.02.1997",     Gender.Another ,    8, 8,   4,    100),
-            new Student ("Роман",       "Снєжик",           "09.03.1998",     Gender.Male ,       9, 9,   4,     95),
-            new Student ("Олександр",   "Коваль",           "15.09.1998",     Gender.Male ,      10, 10,  4,     77),
+            {
+                 new Student ("Валентин",    "Гарматюк",         "14.02.1998",     Gender.Male ,       1, 1,   4,     60),
+                 new Student ("Олег",        "Момотюк",          "22.07.1998",     Gender.Male ,       2, 2,   4,     90),
+                 new Student ("Вiталiй",     "Кухарук",          "25.08.1998",     Gender.Male ,       3, 3,   4,     60),
+                 new Student ("Роман",       "Капустинський",    "20.06.1998",     Gender.Male ,       4, 4,   4,     85),
+                 new Student ("Михайло",     "Хомолюк",          "10.10.1998",     Gender.Male ,       5, 5,   4,     75),
+                 new Student ("Роман",       "Сидорчук",         "10.12.1998",     Gender.Male ,       6, 6,   4,     60),
+                 new Student ("Зоряна",      "Щирба",            "13.05.1998",     Gender.Male ,       7, 7,   4,     89),
+                 new Student ("Юрiй",        "Радовець",         "29.02.1997",     Gender.Another ,    8, 8,   4,    100),
+                 new Student ("Роман",       "Снєжик",           "09.03.1998",     Gender.Male ,       9, 9,   4,     95),
+                 new Student ("Олександр",   "Коваль",           "15.09.1998",     Gender.Male ,      10, 10,  4,     77),
 
         };
 
