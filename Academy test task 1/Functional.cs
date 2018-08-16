@@ -8,19 +8,108 @@ namespace Academy_test_task_1
 {
     class Functional
     {
-        //GLOBAL LISTS
-        List<Teacher> teachers_L = new List<Teacher>();
-        List<Student> students_L = new List<Student>();
 
+        //GLOBAL LISTS
+        List<Teacher> teachers_L = new List<Teacher>(0);
+        List<Student> students_L = new List<Student>(0);
+
+        public void create_teachers()
+        {
+
+            teachers_L.Add(new Teacher(null, null, null, Gender.Another, 0, 0, new List<string>() {" "," "} ));
+
+            foreach (Teacher teachers in teachers_L)
+            {
+                if (teachers.name == null)
+                {
+                    Console.Write("Name:");
+                    teachers.name = Console.ReadLine();
+                    Console.Write("Last name:");
+                    teachers.last_name = Console.ReadLine();
+                    Console.Write("Birth Date:");
+                    teachers.birth_date = Console.ReadLine();
+                    Console.Write("Teacher ID:");
+                    teachers.teacher_ID = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Work Experience:");
+                    teachers.work_experience = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Subjects:");
+                    
+                }
+            }
+        }
+
+        
+        public void create_students()
+        {
+            students_L.Add(new Student(null, null, null, Gender.Male, 0, 0, 0, 0));
+
+            foreach (Student students in students_L)
+            {
+                if (students.name == null)
+                {
+                    Console.Write("Name:");
+                    students.name = Console.ReadLine();
+                    Console.Write("Last name:");
+                    students.last_name = Console.ReadLine();
+                    Console.Write("Birth Date:");
+                    students.birth_date = Console.ReadLine();
+                    Console.Write("Student ID:");
+                    students.student_ID = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Gradebook number:");
+                    students.gradebook_number = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Course:");
+                    students.course = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Average grade:");
+                    students.average_grades = Convert.ToInt32(Console.ReadLine());
+
+                }
+            }
+        }
+
+        public void Output_Created_Teachers()
+        {
+            foreach (Teacher teachers in teachers_L)
+            {
+                Console.WriteLine(
+                 "\nName: " + teachers.name + "\n" +
+                 "Last name : " + teachers.last_name + "\n" +
+                 "Birth date :" + teachers.birth_date + "\n" +
+                 "Gender : " + teachers.personGender + "\n" +
+                 "Teacher ID : " + teachers.teacher_ID + "\n" +
+                 "Work experience: " + teachers.work_experience + "\n" +
+                 "Subjects list: ");
+                foreach (var subjects in teachers.subjects)
+                {
+                    Console.WriteLine(subjects);
+                }
+                Console.WriteLine("\n");
+
+            }
+        }
+
+        public void Output_Created_Students()
+        {
+            foreach (Student students in students_L)
+            {
+                Console.WriteLine(
+                "Name: " + students.name + "\n" +
+                "Last Name: " + students.last_name + "\n" +
+                "Birth Date: " + students.birth_date + "\n" +
+                "Student ID: " + students.student_ID + "\n" +
+                "Gradebook number: " + students.gradebook_number + "\n" +
+                "Course: " + students.course + "\n" +
+                "Average grades: " + students.average_grades + "\n");
+            }
+        }
 
         //TEST TASK LISTS
         List<Teacher> standart_teachers = new List<Teacher>()
             {
 
-                 new Teacher("Олег",    "Пiцун",    "21.04.1991",   Gender.Male,    1, 4,   new List<string>()  {"subject1", "subject2" } ),
-                 new Teacher("Богдан",  "Маслияк",  "15.07.1960",   Gender.Another, 3, 14,  new List<string>()  {"subject3", "subject4" } ),
-                 new Teacher("Юрiй",    "Батько",   "10.10.1980",   Gender.Male,    2, 10,  new List<string>()  {"subject5", "subject6" } ),
-                 new Teacher("Iгор",    "Якименко", "11.12.1970",   Gender.Male,    4, 13,   new List<string>() {"subject7", "subject8" } )
+                 new Teacher("Олег",    "Пiцун",    "21.04.1991",   Gender.Male,    1, 4,       new List<string>()  {"subject1", "subject2" } ),
+                 new Teacher("Богдан",  "Маслияк",  "15.07.1960",   Gender.Another, 3, 14,      new List<string>()  {"subject3", "subject4" } ),
+                 new Teacher("Юрiй",    "Батько",   "10.10.1980",   Gender.Male,    2, 10,      new List<string>()  {"subject5", "subject6" } ),
+                 new Teacher("Iгор",    "Якименко", "11.12.1970",   Gender.Male,    4, 13,      new List<string>()  {"subject7", "subject8" } )
             };
 
         List<Student> standart_students = new List<Student>
@@ -36,9 +125,11 @@ namespace Academy_test_task_1
                  new Student ("Роман",       "Снєжик",           "09.03.1998",     Gender.Male ,       9, 9,   4,     95),
                  new Student ("Олександр",   "Коваль",           "15.09.1998",     Gender.Male ,      10, 10,  4,     77),
 
-        };
+            };
 
-        //OUTPUT
+
+
+        //OUTPUT TEST OBJECTS
         public void Output_Teachers()
         {
             foreach (Teacher teachers in standart_teachers)
@@ -71,9 +162,11 @@ namespace Academy_test_task_1
                 "Gradebook number: " + students.gradebook_number + "\n" +
                 "Course: " + students.course + "\n" +
                 "Average grades: " + students.average_grades + "\n");
-
             }
         }
-
     }
 }
+        
+
+    
+
