@@ -22,7 +22,7 @@ namespace Academy_test_task_1
                 string caseSwitch = Console.ReadLine();
 
 
-                switch (Int32.Parse(caseSwitch))
+                switch (Convert.ToInt32(caseSwitch))
                 {
                     case 1:
                         func.Output_Teachers();
@@ -33,21 +33,24 @@ namespace Academy_test_task_1
 
                     case 3:
                         func.create_teachers();
-                        
+                        Console.Clear();
                         break;
                     case 4:
                         func.create_students();
+                        Console.Clear();
                         break;
 
                     case 5:
                         {
                             func.Output_Created_Teachers();
+                            Console.ReadLine();
                             break;
                             
                         }
                     case 6:
                         {
                             func.Output_Created_Students();
+                            Console.ReadLine();
                             break;
                         }
                         

@@ -8,9 +8,9 @@ namespace Academy_test_task_1
 {
     public enum Gender : byte
     {
-        Male,
-        Female,
-        Another
+        Male ,
+        Female ,
+        Another 
     }
     class Person
     {

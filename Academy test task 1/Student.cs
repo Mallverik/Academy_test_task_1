@@ -25,5 +25,9 @@ namespace Academy_test_task_1
             course = s_course;
             average_grades = grades;
         }
+        public Student ()
+        {
+
+        }
     }
 }

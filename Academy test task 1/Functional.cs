@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
+
+
 namespace Academy_test_task_1
 {
     class Functional
@@ -12,11 +16,14 @@ namespace Academy_test_task_1
         //GLOBAL LISTS
         List<Teacher> teachers_L = new List<Teacher>(0);
         List<Student> students_L = new List<Student>(0);
+        int isChoose;
 
         public void create_teachers()
         {
 
-            teachers_L.Add(new Teacher(null, null, null, Gender.Another, 0, 0, new List<string>() {" "," "} ));
+            teachers_L.Add(new Teacher());
+            int countOfSubjects;
+            
 
             foreach (Teacher teachers in teachers_L)
             {
@@ -28,11 +35,35 @@ namespace Academy_test_task_1
                     teachers.last_name = Console.ReadLine();
                     Console.Write("Birth Date:");
                     teachers.birth_date = Console.ReadLine();
+                    Console.WriteLine("Choose person gender: 1 - Male; 2 - Female; 3 - Another");
+                    isChoose = Convert.ToInt32(Console.ReadLine());
+                    switch(isChoose)
+                    {
+                        case 1:
+                            teachers.personGender = Gender.Male;
+                            break;
+                        case 2:
+                            teachers.personGender = Gender.Female;
+                            break;
+                        case 3:
+                            teachers.personGender = Gender.Another;
+                            break;
+                    }
                     Console.Write("Teacher ID:");
                     teachers.teacher_ID = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Work Experience:");
                     teachers.work_experience = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Count of Subjects:");
+                    countOfSubjects = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Subjects:");
+                    teachers.subjects = new List<string>();
+                    teachers.subjects.Capacity = countOfSubjects;
+
+                    for (int i = 0; i < countOfSubjects; i++)
+                    {
+                        teachers.subjects.Add(Console.ReadLine());
+                    }
+                    
                     
                 }
             }
@@ -41,7 +72,7 @@ namespace Academy_test_task_1
         
         public void create_students()
         {
-            students_L.Add(new Student(null, null, null, Gender.Male, 0, 0, 0, 0));
+            students_L.Add(new Student());
 
             foreach (Student students in students_L)
             {
@@ -53,6 +84,20 @@ namespace Academy_test_task_1
                     students.last_name = Console.ReadLine();
                     Console.Write("Birth Date:");
                     students.birth_date = Console.ReadLine();
+                    Console.WriteLine("Choose person gender: 1 - Male; 2 - Female; 3 - Another");
+                    isChoose = Convert.ToInt32(Console.ReadLine());
+                    switch (isChoose)
+                    {
+                        case 1:
+                            students.personGender = Gender.Male;
+                            break;
+                        case 2:
+                            students.personGender = Gender.Female;
+                            break;
+                        case 3:
+                            students.personGender = Gender.Another;
+                            break;
+                    }
                     Console.Write("Student ID:");
                     students.student_ID = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Gradebook number:");
@@ -158,6 +203,7 @@ namespace Academy_test_task_1
                 "Name: " + students.name + "\n" +
                 "Last Name: " + students.last_name + "\n" +
                 "Birth Date: " + students.birth_date + "\n" +
+                "Gender : " + students.personGender + "\n" +
                 "Student ID: " + students.student_ID + "\n" +
                 "Gradebook number: " + students.gradebook_number + "\n" +
                 "Course: " + students.course + "\n" +
