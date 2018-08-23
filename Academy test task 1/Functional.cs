@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//реалізувати редагування  студентів і викладачів
+//Вивід студентів в алфавітному порядку
+//передбачити обробку помилок
+//Id повинно бути більше 0|| предбачити оброблення помилки, ID повинно
 
 
 
@@ -14,9 +18,10 @@ namespace Academy_test_task_1
     {
 
         //GLOBAL LISTS
-        List<Teacher> teachers_L = new List<Teacher>(0);
-        List<Student> students_L = new List<Student>(0);
+        List<Teacher> teachers_L = new List<Teacher>();
+        List<Student> students_L = new List<Student>();
         int isChoose;
+        int idtoChoose;
 
         public void create_teachers()
         {
@@ -27,6 +32,7 @@ namespace Academy_test_task_1
 
             foreach (Teacher teachers in teachers_L)
             {
+                
                 if (teachers.name == null)
                 {
                     Console.Write("Name:");
@@ -49,8 +55,8 @@ namespace Academy_test_task_1
                             teachers.personGender = Gender.Another;
                             break;
                     }
-                    Console.Write("Teacher ID:");
-                    teachers.teacher_ID = Convert.ToInt32(Console.ReadLine());
+
+                    teachers.teacher_ID = teachers_L.IndexOf(teachers) + 1;
                     Console.Write("Work Experience:");
                     teachers.work_experience = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Count of Subjects:");
@@ -98,8 +104,7 @@ namespace Academy_test_task_1
                             students.personGender = Gender.Another;
                             break;
                     }
-                    Console.Write("Student ID:");
-                    students.student_ID = Convert.ToInt32(Console.ReadLine());
+                    students.student_ID = students_L.IndexOf(students) + 1;
                     Console.Write("Gradebook number:");
                     students.gradebook_number = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Course:");
@@ -147,13 +152,75 @@ namespace Academy_test_task_1
             }
         }
 
+        public void edit_Teachers()
+        {
+            Console.Write("Enter teacher ID you want to edit:");
+            idtoChoose = Convert.ToInt32(Console.ReadLine());
+            int countOfSubjects;
+
+
+            Console.Write("Name:");
+            teachers_L[idtoChoose-1].name = Console.ReadLine();
+            Console.Write("Last name:");
+            teachers_L[idtoChoose-1].last_name = Console.ReadLine();
+            Console.Write("Birth Date:");
+            teachers_L[idtoChoose-1].birth_date = Console.ReadLine();
+            Console.WriteLine("Choose person gender: 1 - Male; 2 - Female; 3 - Another");
+            isChoose = Convert.ToInt32(Console.ReadLine());
+            switch (isChoose)
+            {
+
+                case 1:
+                    teachers_L[idtoChoose-1].personGender = Gender.Male;
+                    break;
+                case 2:
+                    teachers_L[idtoChoose-1].personGender = Gender.Female;
+                    break;
+                case 3:
+                    teachers_L[idtoChoose-1].personGender = Gender.Another;
+                    break;
+            }
+            Console.Write("Work Experience:");
+            teachers_L[idtoChoose-1].work_experience = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Count of Subjects:");
+            countOfSubjects = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Subjects:");
+            teachers_L[idtoChoose-1].subjects = new List<string>();
+            teachers_L[idtoChoose-1].subjects.Capacity = countOfSubjects;
+            for (int i = 0; i < countOfSubjects; i++)
+            {
+                teachers_L[idtoChoose-1].subjects.Add(Console.ReadLine());
+            }
+
+        }
+        public void edit_Students()
+        {
+            
+        }
+
+        public void delete_Teachers()
+        {
+            Console.Write("Enter teacher ID you want to delete:");
+            idtoChoose = Convert.ToInt32(Console.ReadLine());
+            teachers_L.Remove(teachers_L[idtoChoose-1]);
+            Console.WriteLine("Done!");
+            
+        }
+        public void delete_Students()
+        {
+            Console.Write("Enter student ID you want to delete:");
+            idtoChoose = Convert.ToInt32(Console.ReadLine());
+            students_L.Remove(students_L[idtoChoose-1]);
+            Console.WriteLine("Done!");
+        }
+
         //TEST TASK LISTS
         List<Teacher> standart_teachers = new List<Teacher>()
             {
 
                  new Teacher("Олег",    "Пiцун",    "21.04.1991",   Gender.Male,    1, 4,       new List<string>()  {"subject1", "subject2" } ),
-                 new Teacher("Богдан",  "Маслияк",  "15.07.1960",   Gender.Another, 3, 14,      new List<string>()  {"subject3", "subject4" } ),
-                 new Teacher("Юрiй",    "Батько",   "10.10.1980",   Gender.Male,    2, 10,      new List<string>()  {"subject5", "subject6" } ),
+                 new Teacher("Богдан",  "Маслияк",  "15.07.1960",   Gender.Another, 2, 14,      new List<string>()  {"subject3", "subject4" } ),
+                 new Teacher("Юрiй",    "Батько",   "10.10.1980",   Gender.Male,    3, 10,      new List<string>()  {"subject5", "subject6" } ),
                  new Teacher("Iгор",    "Якименко", "11.12.1970",   Gender.Male,    4, 13,      new List<string>()  {"subject7", "subject8" } )
             };
 
@@ -168,7 +235,7 @@ namespace Academy_test_task_1
                  new Student ("Зоряна",      "Щирба",            "13.05.1998",     Gender.Male ,       7, 7,   4,     89),
                  new Student ("Юрiй",        "Радовець",         "29.02.1997",     Gender.Another ,    8, 8,   4,    100),
                  new Student ("Роман",       "Снєжик",           "09.03.1998",     Gender.Male ,       9, 9,   4,     95),
-                 new Student ("Олександр",   "Коваль",           "15.09.1998",     Gender.Male ,      10, 10,  4,     77),
+                 new Student ("Олександр",   "Коваль",           "15.09.1998",     Gender.Male ,       10, 10,  4,     77),
 
             };
 
