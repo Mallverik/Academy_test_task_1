@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//реалізувати редагування  студентів і викладачів
+
 //Вивід студентів в алфавітному порядку
 //передбачити обробку помилок
-//Id повинно бути більше 0|| предбачити оброблення помилки, ID повинно
+
+
 
 
 
@@ -18,11 +19,12 @@ namespace Academy_test_task_1
     {
 
         //GLOBAL LISTS
-        List<Teacher> teachers_L = new List<Teacher>();
-        List<Student> students_L = new List<Student>();
+       public List<Teacher> teachers_L = new List<Teacher>();
+       public List<Student> students_L = new List<Student>();
         int isChoose;
         int idtoChoose;
 
+        //CREATE
         public void create_teachers()
         {
 
@@ -73,9 +75,8 @@ namespace Academy_test_task_1
                     
                 }
             }
+            
         }
-
-        
         public void create_students()
         {
             students_L.Add(new Student());
@@ -111,11 +112,14 @@ namespace Academy_test_task_1
                     students.course = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Average grade:");
                     students.average_grades = Convert.ToInt32(Console.ReadLine());
+                    
 
                 }
             }
+            
         }
 
+        //OUTPUT CREATED 
         public void Output_Created_Teachers()
         {
             foreach (Teacher teachers in teachers_L)
@@ -136,7 +140,6 @@ namespace Academy_test_task_1
 
             }
         }
-
         public void Output_Created_Students()
         {
             foreach (Student students in students_L)
@@ -151,7 +154,8 @@ namespace Academy_test_task_1
                 "Average grades: " + students.average_grades + "\n");
             }
         }
-
+        
+        //EDIT
         public void edit_Teachers()
         {
             Console.Write("Enter teacher ID you want to edit:");
@@ -191,19 +195,52 @@ namespace Academy_test_task_1
             {
                 teachers_L[idtoChoose-1].subjects.Add(Console.ReadLine());
             }
+            
 
         }
         public void edit_Students()
         {
+            Console.Write("Name:");
+            students_L[idtoChoose].name = Console.ReadLine();
+            Console.Write("Last name:");
+            students_L[idtoChoose].last_name = Console.ReadLine();
+            Console.Write("Birth Date:");
+            students_L[idtoChoose].birth_date = Console.ReadLine();
+            Console.WriteLine("Choose person gender: 1 - Male; 2 - Female; 3 - Another");
+            isChoose = Convert.ToInt32(Console.ReadLine());
+            switch (isChoose)
+            {
+                case 1:
+                    students_L[idtoChoose].personGender = Gender.Male;
+                    break;
+                case 2:
+                    students_L[idtoChoose].personGender = Gender.Female;
+                    break;
+                case 3:
+                    students_L[idtoChoose].personGender = Gender.Another;
+                    break;
+            }
+            
+            Console.Write("Gradebook number:");
+            students_L[idtoChoose].gradebook_number = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Course:");
+            students_L[idtoChoose].course = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Average grade:");
+            students_L[idtoChoose].average_grades = Convert.ToInt32(Console.ReadLine());
             
         }
 
+        //DELETE_FUNC
         public void delete_Teachers()
         {
             Console.Write("Enter teacher ID you want to delete:");
             idtoChoose = Convert.ToInt32(Console.ReadLine());
             teachers_L.Remove(teachers_L[idtoChoose-1]);
-            Console.WriteLine("Done!");
+            foreach(Teacher teachers in teachers_L)
+            {
+                teachers.teacher_ID = teachers_L.IndexOf(teachers) + 1;
+            }
+            
             
         }
         public void delete_Students()
@@ -211,11 +248,34 @@ namespace Academy_test_task_1
             Console.Write("Enter student ID you want to delete:");
             idtoChoose = Convert.ToInt32(Console.ReadLine());
             students_L.Remove(students_L[idtoChoose-1]);
-            Console.WriteLine("Done!");
+            foreach (Student students in students_L)
+            {
+                students.student_ID = students_L.IndexOf(students) + 1;
+            }
+            
+        }
+
+        public void sort_students(List <Student> student_s)
+        {
+            var s_students = student_s.OrderBy(sorted => sorted.last_name);
+
+            foreach (Student sorted in s_students)
+            {
+                Console.WriteLine(
+               "Last Name: " + sorted.last_name + "\n" +
+               "Name: " + sorted.name + "\n" +
+               "Birth Date: " + sorted.birth_date + "\n" +
+               "Gender : " + sorted.personGender + "\n" +
+               "Student ID: " + sorted.student_ID + "\n" +
+               "Gradebook number: " + sorted.gradebook_number + "\n" +
+               "Course: " + sorted.course + "\n" +
+               "Average grades: " + sorted.average_grades + "\n");
+            }
         }
 
         //TEST TASK LISTS
-        List<Teacher> standart_teachers = new List<Teacher>()
+        
+            List<Teacher> standart_teachers = new List<Teacher>()
             {
 
                  new Teacher("Олег",    "Пiцун",    "21.04.1991",   Gender.Male,    1, 4,       new List<string>()  {"subject1", "subject2" } ),
@@ -223,8 +283,9 @@ namespace Academy_test_task_1
                  new Teacher("Юрiй",    "Батько",   "10.10.1980",   Gender.Male,    3, 10,      new List<string>()  {"subject5", "subject6" } ),
                  new Teacher("Iгор",    "Якименко", "11.12.1970",   Gender.Male,    4, 13,      new List<string>()  {"subject7", "subject8" } )
             };
-
-        List<Student> standart_students = new List<Student>
+        
+        
+           public List<Student> standart_students = new List<Student>
             {
                  new Student ("Валентин",    "Гарматюк",         "14.02.1998",     Gender.Male ,       1, 1,   4,     60),
                  new Student ("Олег",        "Момотюк",          "22.07.1998",     Gender.Male ,       2, 2,   4,     90),
@@ -238,10 +299,13 @@ namespace Academy_test_task_1
                  new Student ("Олександр",   "Коваль",           "15.09.1998",     Gender.Male ,       10, 10,  4,     77),
 
             };
+            
+        
 
 
 
         //OUTPUT TEST OBJECTS
+        
         public void Output_Teachers()
         {
             foreach (Teacher teachers in standart_teachers)
@@ -261,25 +325,9 @@ namespace Academy_test_task_1
                 Console.WriteLine("\n");
             }
         }
-
-        public void Output_Students()
-        {
-            foreach (Student students in standart_students)
-            {
-                Console.WriteLine(
-                "Name: " + students.name + "\n" +
-                "Last Name: " + students.last_name + "\n" +
-                "Birth Date: " + students.birth_date + "\n" +
-                "Gender : " + students.personGender + "\n" +
-                "Student ID: " + students.student_ID + "\n" +
-                "Gradebook number: " + students.gradebook_number + "\n" +
-                "Course: " + students.course + "\n" +
-                "Average grades: " + students.average_grades + "\n");
-            }
-        }
+        
+        
+       
     }
 }
-        
-
-    
-
+ 
