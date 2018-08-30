@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Academy_test_task_1
 {
-    
+
     class Program
     {
 
@@ -20,12 +20,12 @@ namespace Academy_test_task_1
                 try
                 {
 
-                    Console.WriteLine("Output teachers: Enter \t\t\"1\"\t \t \t Delete teachers by ID: Enter \t\"7\"");
-                    Console.WriteLine("Output students: Enter \t\t\"2\"\t \t \t Delete students by ID: Enter \t\"8\"");
-                    Console.WriteLine("Create teachers: Enter \t\t\"3\"\t \t \t Edit teachers by ID: Enter \t\"9\"");
-                    Console.WriteLine("Create students: Enter \t\t\"4\"\t \t \t Edit students by ID: Enter \t\"10\"");
-                    Console.WriteLine("Output created teachers: Enter \t\"5\"\t \t \t Clean Console: Enter \t\t\"11\"");
-                    Console.WriteLine("Output created studetns: Enter \t\"6\"\t \t \t Close program: Enter \t\t\"12\"");
+                    Console.WriteLine("Output test teachers: \t\"1\"\t \t \t \t Delete teachers by ID: \"7\"");
+                    Console.WriteLine("Output test students:  \t\"2\"\t \t \t \t Delete students by ID: \"8\"");
+                    Console.WriteLine("Create teachers:  \t\"3\"\t \t \t\t Edit teachers by ID: \t\"9\"");
+                    Console.WriteLine("Create students:  \t\"4\"\t \t \t\t Edit students by ID: \t\"10\"");
+                    Console.WriteLine("Output created teachers:\"5\"\t \t\t \t Clean Console: \t\"11\"");
+                    Console.WriteLine("Output created studetns:\"6\"\t \t\t \t Close program: \t\"12\"");
                     string caseSwitch = Console.ReadLine();
 
 
@@ -99,15 +99,15 @@ namespace Academy_test_task_1
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex.Message);
                 }
             }
 
-                }
-            }
-            
-        
-            
         }
+    }
+
+
+
+}
     
 

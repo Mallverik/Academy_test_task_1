@@ -12,8 +12,7 @@ namespace Academy_test_task_1
         public int gradebook_number;
         public int course;
         public int average_grades;
-
-
+        
         public Student(String f_name, String l_name, String b_date, Gender p_gender, int s_ID, int g_number , int s_course, int grades)
         {
             name = f_name;

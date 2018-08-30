@@ -5,14 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-//Вивід студентів в алфавітному порядку
-//передбачити обробку помилок
-
-
-
-
-
-
 namespace Academy_test_task_1
 {
     class Functional
@@ -34,7 +26,7 @@ namespace Academy_test_task_1
 
             foreach (Teacher teachers in teachers_L)
             {
-                
+
                 if (teachers.name == null)
                 {
                     Console.Write("Name:");
@@ -45,7 +37,7 @@ namespace Academy_test_task_1
                     teachers.birth_date = Console.ReadLine();
                     Console.WriteLine("Choose person gender: 1 - Male; 2 - Female; 3 - Another");
                     isChoose = Convert.ToInt32(Console.ReadLine());
-                    switch(isChoose)
+                    switch (isChoose)
                     {
                         case 1:
                             teachers.personGender = Gender.Male;
@@ -71,8 +63,6 @@ namespace Academy_test_task_1
                     {
                         teachers.subjects.Add(Console.ReadLine());
                     }
-                    
-                    
                 }
             }
             
@@ -255,6 +245,7 @@ namespace Academy_test_task_1
             
         }
 
+        //OUTPUT_SORT_STUDENTS
         public void sort_students(List <Student> student_s)
         {
             var s_students = student_s.OrderBy(sorted => sorted.last_name);
@@ -293,19 +284,14 @@ namespace Academy_test_task_1
                  new Student ("Роман",       "Капустинський",    "20.06.1998",     Gender.Male ,       4, 4,   4,     85),
                  new Student ("Михайло",     "Хомолюк",          "10.10.1998",     Gender.Male ,       5, 5,   4,     75),
                  new Student ("Роман",       "Сидорчук",         "10.12.1998",     Gender.Male ,       6, 6,   4,     60),
-                 new Student ("Зоряна",      "Щирба",            "13.05.1998",     Gender.Male ,       7, 7,   4,     89),
+                 new Student ("Зоряна",      "Щирба",            "13.05.1998",     Gender.Female ,     7, 7,   4,     89),
                  new Student ("Юрiй",        "Радовець",         "29.02.1997",     Gender.Another ,    8, 8,   4,    100),
                  new Student ("Роман",       "Снєжик",           "09.03.1998",     Gender.Male ,       9, 9,   4,     95),
                  new Student ("Олександр",   "Коваль",           "15.09.1998",     Gender.Male ,       10, 10,  4,     77),
 
             };
             
-        
-
-
-
         //OUTPUT TEST OBJECTS
-        
         public void Output_Teachers()
         {
             foreach (Teacher teachers in standart_teachers)
@@ -325,8 +311,6 @@ namespace Academy_test_task_1
                 Console.WriteLine("\n");
             }
         }
-        
-        
        
     }
 }
