@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//Зробити все через властивість Name {get;set}
-//переробити enum через bool
+
+
 //через throw new передбачити виключення
-//Переробити назви змінних під правильний стиль
+
 //Зробити вибір гендера не через свіч кейс 
 // при винекненні помилки, вертатись на той самий крок
 namespace Academy_test_task_1

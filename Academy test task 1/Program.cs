@@ -33,13 +33,13 @@ namespace Academy_test_task_1
                     switch (caseSwitch)
                     {
                         case 1:
-                            ProgramFunctional.Output_Teachers();
+                            ProgramFunctional.OutputTestTeachers();
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
                             break;
                         case 2:
-                            ProgramFunctional.sort_students(ProgramFunctional.StandartStudents);
+                            ProgramFunctional.SortStudents(ProgramFunctional.StandartStudents);
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
@@ -64,18 +64,18 @@ namespace Academy_test_task_1
                             break;
 
                         case 6:
-                            ProgramFunctional.sort_students(ProgramFunctional.StudentsList);
+                            ProgramFunctional.SortStudents(ProgramFunctional.StudentsList);
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
                             break;
                         case 7:
-                            ProgramFunctional.delete_Teachers();
+                            ProgramFunctional.DeleteTeachers();
                             Console.Clear();
                             Console.WriteLine("Done!");
                             break;
                         case 8:
-                            ProgramFunctional.delete_Students();
+                            ProgramFunctional.DeleteStudents();
                             Console.Clear();
                             Console.WriteLine("Done!");
                             break;

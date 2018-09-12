@@ -8,9 +8,9 @@ namespace Academy_test_task_1
 {
     class Student : Person
     {
-        public int GradebookNumber;
-        public int StudentСourse;
-        public int AverageGrades;
+        public int GradebookNumber { get; set; }
+        public int StudentСourse { get; set; }
+        public int AverageGrades { get; set; }
         
         public Student(String FirstName, String LastName, String BirthDate, Gender PersonGender, int ID, int GradebookNumber , int StudentCourse, int AverageGrades)
         {
@@ -20,7 +20,7 @@ namespace Academy_test_task_1
             this.PersonGender = PersonGender;
             this.ID = ID;
             this.GradebookNumber = GradebookNumber;
-            this.StudentСourse = StudentCourse;
+            StudentСourse = StudentCourse;
             this.AverageGrades = AverageGrades;
         }
         public Student ()

@@ -207,7 +207,7 @@ namespace Academy_test_task_1
         }
 
         //DELETE_FUNC
-        public void delete_Teachers()
+        public void DeleteTeachers()
         {
             Console.Write("Enter teacher ID you want to delete:");
             idToChoose = Convert.ToInt32(Console.ReadLine());
@@ -220,7 +220,7 @@ namespace Academy_test_task_1
             
         }
 
-        public void delete_Students()
+        public void DeleteStudents()
         {
             Console.Write("Enter student ID you want to delete:");
             idToChoose = Convert.ToInt32(Console.ReadLine());
@@ -233,11 +233,11 @@ namespace Academy_test_task_1
         }
 
         //OUTPUT_SORT_STUDENTS
-        public void sort_students(List <Student> student_s)
+        public void SortStudents(List <Student> SortStudentsList)
         {
-            var s_students = student_s.OrderBy(sorted => sorted.LastName);
+            var students = SortStudentsList.OrderBy(sorted => sorted.LastName);
 
-            foreach (Student sorted in s_students)
+            foreach (Student sorted in students)
             {
                 Console.WriteLine(
                "Last Name: " + sorted.LastName + "\n" +
@@ -279,7 +279,7 @@ namespace Academy_test_task_1
             };
             
         //OUTPUT TEST OBJECTS
-        public void Output_Teachers()
+        public void OutputTestTeachers()
         {
             foreach (Teacher teachers in TestTeachers)
             {
