@@ -8,21 +8,20 @@ namespace Academy_test_task_1
 {
     class Student : Person
     {
-        public int student_ID;
-        public int gradebook_number;
-        public int course;
-        public int average_grades;
+        public int GradebookNumber;
+        public int StudentСourse;
+        public int AverageGrades;
         
-        public Student(String f_name, String l_name, String b_date, Gender p_gender, int s_ID, int g_number , int s_course, int grades)
+        public Student(String FirstName, String LastName, String BirthDate, Gender PersonGender, int ID, int GradebookNumber , int StudentCourse, int AverageGrades)
         {
-            name = f_name;
-            last_name = l_name;
-            birth_date = b_date;
-            p_gender = personGender;
-            student_ID = s_ID;
-            gradebook_number = g_number;
-            course = s_course;
-            average_grades = grades;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.BirthDate = BirthDate;
+            this.PersonGender = PersonGender;
+            this.ID = ID;
+            this.GradebookNumber = GradebookNumber;
+            this.StudentСourse = StudentCourse;
+            this.AverageGrades = AverageGrades;
         }
         public Student ()
         {

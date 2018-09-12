@@ -4,20 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Зробити все через властивість Name {get;set}
+//переробити enum через bool
+//через throw new передбачити виключення
+//Переробити назви змінних під правильний стиль
+//Зробити вибір гендера не через свіч кейс 
+// при винекненні помилки, вертатись на той самий крок
 namespace Academy_test_task_1
 {
     public enum Gender : byte
     {
         Male ,
         Female ,
-        Another 
     }
     class Person
     {
-        public string name;
-        public string last_name;
-        public string birth_date;
-        public Gender personGender { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string BirthDate { get; set; }
+        public int ID { get; set; }
+        public Gender PersonGender { get; set; }
 
     }
 }

@@ -8,25 +8,21 @@ namespace Academy_test_task_1
 {
     class Teacher : Person
     {
-        public int teacher_ID;
-        public int work_experience;
-        public List <string> subjects;
+        public int WorkExperience { get; set; }
+        public List<string> TeacherSubjects { get; set; }
 
-
-
-        public Teacher(String f_name, String l_name, String b_date, Gender p_gender, int t_ID, int experience, List<string> teacher_subjects)
+        public Teacher(String FirstName, String LastName, String BirthDate, Gender PersonGender, int ID, int WorkExperience, List<string> TeacherSubjects)
         {
-            name = f_name;
-            last_name = l_name;
-            birth_date = b_date;
-            p_gender = personGender;
-            teacher_ID = t_ID;
-            work_experience = experience;
-            subjects = teacher_subjects;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.BirthDate = BirthDate;
+            this.PersonGender = PersonGender;
+            this.ID = ID;
+            this.WorkExperience = WorkExperience;
+            this.TeacherSubjects = TeacherSubjects;
         }
 
-        public Teacher ()
-        {
+        public Teacher () {
 
         }
   

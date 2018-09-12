@@ -4,22 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Academy_test_task_1
 {
 
     class Program
     {
-
         static void Main(string[] args)
         {
-            bool task = true;
-            Functional func = new Functional();
+            bool TaskIsRunning = true;
+            Functional ProgramFunctional = new Functional();
 
-            while (task == true)
+            while (TaskIsRunning == true)
             {
                 try
                 {
-
+                    Console.Clear();
                     Console.WriteLine("Output test teachers: \t\"1\"\t \t \t \t Delete teachers by ID: \"7\"");
                     Console.WriteLine("Output test students:  \t\"2\"\t \t \t \t Delete students by ID: \"8\"");
                     Console.WriteLine("Create teachers:  \t\"3\"\t \t \t\t Edit teachers by ID: \t\"9\"");
@@ -32,59 +33,59 @@ namespace Academy_test_task_1
                     switch (caseSwitch)
                     {
                         case 1:
-                            func.Output_Teachers();
+                            ProgramFunctional.Output_Teachers();
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
                             break;
                         case 2:
-                            func.sort_students(func.standart_students);
+                            ProgramFunctional.sort_students(ProgramFunctional.StandartStudents);
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
                             break;
 
                         case 3:
-                            func.create_teachers();
+                            ProgramFunctional.CreateTeachers();
                             Console.Clear();
                             Console.WriteLine("Done!");
                             break;
                         case 4:
-                            func.create_students();
+                            ProgramFunctional.CreateStudents();
                             Console.Clear();
                             Console.WriteLine("Done!");
                             break;
 
                         case 5:
-                            func.Output_Created_Teachers();
+                            ProgramFunctional.OutputCreatedTeachers();
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
                             break;
 
                         case 6:
-                            func.sort_students(func.students_L);
+                            ProgramFunctional.sort_students(ProgramFunctional.StudentsList);
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
                             break;
                         case 7:
-                            func.delete_Teachers();
+                            ProgramFunctional.delete_Teachers();
                             Console.Clear();
                             Console.WriteLine("Done!");
                             break;
                         case 8:
-                            func.delete_Students();
+                            ProgramFunctional.delete_Students();
                             Console.Clear();
                             Console.WriteLine("Done!");
                             break;
                         case 9:
-                            func.edit_Teachers();
+                            ProgramFunctional.EditTeachers();
                             Console.Clear();
                             Console.WriteLine("Done!");
                             break;
                         case 10:
-                            func.edit_Students();
+                            ProgramFunctional.EditStudents();
                             Console.Clear();
                             Console.WriteLine("Done!");
                             break;
@@ -93,13 +94,16 @@ namespace Academy_test_task_1
                             Console.Clear();
                             break;
                         case 12:
-                            task = false;
+                            TaskIsRunning = false;
                             break;
                     }
                 }
                 catch (Exception ex)
                 {
+                    
                     Console.WriteLine(ex.Message);
+                    Console.WriteLine("Press \"Enter\" to continue ");
+                    Console.ReadLine();
                 }
             }
 
