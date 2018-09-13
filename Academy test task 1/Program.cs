@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Academy_test_task_1
 {
-
+    
     class Program
     {
         static void Main(string[] args)
@@ -16,8 +16,9 @@ namespace Academy_test_task_1
             bool TaskIsRunning = true;
             Functional ProgramFunctional = new Functional();
 
-            while (TaskIsRunning == true)
+            while (TaskIsRunning)
             {
+
                 try
                 {
                     Console.Clear();
@@ -32,6 +33,7 @@ namespace Academy_test_task_1
 
                     switch (caseSwitch)
                     {
+
                         case 1:
                             ProgramFunctional.OutputTestTeachers();
                             Console.WriteLine("Press \"Enter\" to continue");
