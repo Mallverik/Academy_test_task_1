@@ -41,7 +41,7 @@ namespace Academy_test_task_1
                             Console.Clear();
                             break;
                         case 2:
-                            ProgramFunctional.SortStudents(ProgramFunctional.StandartStudents);
+                            ProgramFunctional.SortStudents(ProgramFunctional.TestStudents);
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
@@ -106,6 +106,7 @@ namespace Academy_test_task_1
                     Console.WriteLine(ex.Message);
                     Console.WriteLine("Press \"Enter\" to continue ");
                     Console.ReadLine();
+                    
                 }
             }
 

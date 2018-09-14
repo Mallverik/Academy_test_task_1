@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 
 
-//через throw new передбачити виключення
-
-//Зробити вибір гендера не через свіч кейс 
-// при винекненні помилки, вертатись на той самий крок
 namespace Academy_test_task_1
 {
     
@@ -20,6 +16,6 @@ namespace Academy_test_task_1
         public string BirthDate { get; set; }
         public int ID { get; set; }
         public bool PersonGender { get; set; }
-        
+        public bool SuccesfulCreating { get; set; }        
     }
 }

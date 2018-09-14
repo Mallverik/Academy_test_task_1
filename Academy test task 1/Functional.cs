@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+// TODO      Добавит логіку заповнення ліста відповідно до виникнення можливих помилок
 
 namespace Academy_test_task_1
 {
@@ -18,18 +18,19 @@ namespace Academy_test_task_1
         int IDSelection;
         int GenderSelection;
         string SelectedGender;
+
         //CREATE
         public void CreateTeachers()
         {
             
             TeachersList.Add(new Teacher());
             int countOfSubjects;
-            
+           
             foreach (Teacher teachers in TeachersList)
             {
-
-                if (teachers.FirstName == null)
-                {
+               
+                if (!teachers.SuccesfulCreating){
+                    Console.WriteLine("Enter teacher with ID:" + (TeachersList.IndexOf(teachers) + 1));
                     Console.Write("Name:");
                     teachers.FirstName = Console.ReadLine();
                     Console.Write("Last name:");
@@ -59,10 +60,10 @@ namespace Academy_test_task_1
                     teachers.TeacherSubjects = new List<string>();
                     teachers.TeacherSubjects.Capacity = countOfSubjects;
 
-                    for (int i = 0; i < countOfSubjects; i++)
-                    {
+                    for (int i = 0; i < countOfSubjects; i++) {
                         teachers.TeacherSubjects.Add(Console.ReadLine());
                     }
+                    teachers.SuccesfulCreating = true;
                 }
             }
             
@@ -73,8 +74,10 @@ namespace Academy_test_task_1
 
             foreach (Student students in StudentsList)
             {
-                if (students.FirstName == null)
+              
+                if (!students.SuccesfulCreating)
                 {
+                    Console.WriteLine("Enter teacher with ID:" + (StudentsList.IndexOf(students) + 1));
                     Console.Write("Name:");
                     students.FirstName = Console.ReadLine();
                     Console.Write("Last name:");
@@ -99,8 +102,16 @@ namespace Academy_test_task_1
                     students.GradebookNumber = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Course:");
                     students.StudentСourse = Convert.ToInt32(Console.ReadLine());
+                    if (students.StudentСourse <= 0) {
+                        throw new Exception("Incorrect input data");
+                    }
                     Console.Write("Average grade:");
                     students.AverageGrades = Convert.ToInt32(Console.ReadLine());
+                    if (students.AverageGrades <= 0 || students.AverageGrades >= 100)
+                    {
+                        throw new Exception("Incorrect input data");
+                    }
+                    students.SuccesfulCreating = true;
                 }
             }
             
@@ -159,8 +170,7 @@ namespace Academy_test_task_1
             Console.Write("Enter teacher ID you want to edit:");
             IDSelection = Convert.ToInt32(Console.ReadLine());
             int countOfSubjects;
-
-
+            
             Console.Write("Name:");
             TeachersList[IDSelection-1].FirstName = Console.ReadLine();
             Console.Write("Last name:");
@@ -222,8 +232,14 @@ namespace Academy_test_task_1
             StudentsList[IDSelection].GradebookNumber = Convert.ToInt32(Console.ReadLine());
             Console.Write("Course:");
             StudentsList[IDSelection].StudentСourse = Convert.ToInt32(Console.ReadLine());
+            if (StudentsList[IDSelection].StudentСourse <= 0) {
+                throw new Exception("Incorect input data");
+            }
             Console.Write("Average grade:");
             StudentsList[IDSelection].AverageGrades = Convert.ToInt32(Console.ReadLine());
+            if (StudentsList[IDSelection].AverageGrades <= 0 || StudentsList[IDSelection].AverageGrades > 100) {
+                throw new Exception("Incorect input data");
+            }
             
         }
 
@@ -289,7 +305,7 @@ namespace Academy_test_task_1
             };
         
         
-           public List<Student> StandartStudents = new List<Student>
+           public List<Student> TestStudents = new List<Student>
             {
                  new Student ("Валентин",    "Гарматюк",         "14.02.1998",     true  ,       1, 1,   4,     60   ),
                  new Student ("Олег",        "Момотюк",          "22.07.1998",     true  ,       2, 2,   4,     90   ),
@@ -297,7 +313,7 @@ namespace Academy_test_task_1
                  new Student ("Роман",       "Капустинський",    "20.06.1998",     true  ,       4, 4,   4,     85   ),
                  new Student ("Михайло",     "Хомолюк",          "10.10.1998",     true  ,       5, 5,   4,     75   ),
                  new Student ("Роман",       "Сидорчук",         "10.12.1998",     true  ,       6, 6,   4,     60   ),
-                 new Student ("Зоряна",      "Щирба",            "13.05.1998",     true  ,       7, 7,   4,     89   ),
+                 new Student ("Зоряна",      "Щирба",            "13.05.1998",     false ,       7, 7,   4,     89   ),
                  new Student ("Юрiй",        "Радовець",         "29.02.1997",     false ,       8, 8,   4,    100   ),
                  new Student ("Роман",       "Снєжик",           "09.03.1998",     true  ,       9, 9,   4,     95   ),
                  new Student ("Олександр",   "Коваль",           "15.09.1998",     true  ,       10, 10, 4,     77   ),
