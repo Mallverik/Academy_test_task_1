@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-// TODO      Добавит логіку заповнення ліста відповідно до виникнення можливих помилок
+
 
 namespace Academy_test_task_1
 {
-    
+
     class Functional
     {
-        
+
         //GLOBAL LISTS
         public List<Teacher> TeachersList = new List<Teacher>();
         public List<Student> StudentsList = new List<Student>();
-        
+
         int IDSelection;
         int GenderSelection;
         string SelectedGender;
@@ -22,109 +22,148 @@ namespace Academy_test_task_1
         //CREATE
         public void CreateTeachers()
         {
-            
-            TeachersList.Add(new Teacher());
             int countOfSubjects;
-           
-            foreach (Teacher teachers in TeachersList)
+
+            try
             {
-               
-                if (!teachers.SuccesfulCreating){
-                    Console.WriteLine("Enter teacher with ID:" + (TeachersList.IndexOf(teachers) + 1));
-                    Console.Write("Name:");
-                    teachers.FirstName = Console.ReadLine();
-                    Console.Write("Last name:");
-                    teachers.LastName = Console.ReadLine();
-                    Console.Write("Birth Date:");
-                    teachers.BirthDate = Console.ReadLine();
-                    Console.WriteLine("Choose person gender: 1 - Male; 2 - Female;");
-                    GenderSelection = Convert.ToInt32(Console.ReadLine());
-                    switch (GenderSelection)
-                    {
-                        case 1:
-                            teachers.PersonGender = true;
-                            break;
-                        case 2:
-                            teachers.PersonGender = false;
-                            break;
-                        default:
-                            throw new Exception("Incorrect input data;");
-                    }
 
-                    teachers.ID = TeachersList.IndexOf(teachers) + 1;
-                    Console.Write("Work Experience:");
-                    teachers.WorkExperience = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Count of Subjects:");
-                    countOfSubjects = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Subjects:");
-                    teachers.TeacherSubjects = new List<string>();
-                    teachers.TeacherSubjects.Capacity = countOfSubjects;
-
-                    for (int i = 0; i < countOfSubjects; i++) {
-                        teachers.TeacherSubjects.Add(Console.ReadLine());
-                    }
-                    teachers.SuccesfulCreating = true;
+                if (TeachersList.Capacity == 0)
+                {
+                    TeachersList.Add(new Teacher());
                 }
+
+
+                foreach (Teacher teachers in TeachersList)
+                {
+                    if (!teachers.SuccesfulCreating)
+                    {
+                        Console.WriteLine("Enter teacher with ID:" + (TeachersList.IndexOf(teachers) + 1));
+                        Console.Write("Name:");
+                        teachers.FirstName = Console.ReadLine();
+                        Console.Write("Last name:");
+                        teachers.LastName = Console.ReadLine();
+                        Console.Write("Birth Date:");
+                        teachers.BirthDate = Console.ReadLine();
+                        Console.WriteLine("Choose person gender: 1 - Male; 2 - Female;");
+                        GenderSelection = Convert.ToInt32(Console.ReadLine());
+                        switch (GenderSelection)
+                        {
+                            case 1:
+                                teachers.PersonGender = true;
+                                break;
+                            case 2:
+                                teachers.PersonGender = false;
+                                break;
+                            default:
+                                throw new Exception("Incorrect input data");
+                        }
+
+                        Console.Write("Work Experience:");
+                        teachers.WorkExperience = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Count of Subjects:");
+                        countOfSubjects = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Subjects:");
+                        teachers.TeacherSubjects = new List<string>
+                        {
+                            Capacity = countOfSubjects
+                        };
+
+                        for (int i = 0; i < countOfSubjects; i++)
+                        {
+                            teachers.TeacherSubjects.Add(Console.ReadLine());
+                        }
+                        teachers.ID = TeachersList.IndexOf(teachers) + 1;
+                        teachers.SuccesfulCreating = true;
+                    }
+                }
+                TeachersList.Add(new Teacher());
             }
-            
+            catch (Exception e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message + "\nTry again ");
+                CreateTeachers();
+            }
         }
+
         public void CreateStudents()
         {
-            StudentsList.Add(new Student());
-
-            foreach (Student students in StudentsList)
+            if (StudentsList.Capacity == 0)
             {
-              
-                if (!students.SuccesfulCreating)
-                {
-                    Console.WriteLine("Enter teacher with ID:" + (StudentsList.IndexOf(students) + 1));
-                    Console.Write("Name:");
-                    students.FirstName = Console.ReadLine();
-                    Console.Write("Last name:");
-                    students.LastName = Console.ReadLine();
-                    Console.Write("Birth Date:");
-                    students.BirthDate = Console.ReadLine();
-                    Console.WriteLine("Choose person gender: 1 - Male; 2 - Female;");
-                    GenderSelection = Convert.ToInt32(Console.ReadLine());
-                    switch (GenderSelection)
-                    {
-                        case 1:
-                            students.PersonGender = true;
-                            break;
-                        case 2:
-                            students.PersonGender = false;
-                            break;
-                        default:
-                            throw new Exception("Incorrect input data");
-                    }
-                    students.ID = StudentsList.IndexOf(students) + 1;
-                    Console.Write("Gradebook number:");
-                    students.GradebookNumber = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Course:");
-                    students.StudentСourse = Convert.ToInt32(Console.ReadLine());
-                    if (students.StudentСourse <= 0) {
-                        throw new Exception("Incorrect input data");
-                    }
-                    Console.Write("Average grade:");
-                    students.AverageGrades = Convert.ToInt32(Console.ReadLine());
-                    if (students.AverageGrades <= 0 || students.AverageGrades >= 100)
-                    {
-                        throw new Exception("Incorrect input data");
-                    }
-                    students.SuccesfulCreating = true;
-                }
+                StudentsList.Add(new Student());
             }
-            
+
+            try
+            {
+                foreach (Student students in StudentsList)
+                {
+                    if (!students.SuccesfulCreating)
+                    {
+                        Console.WriteLine("Enter student with ID:" + (StudentsList.IndexOf(students) + 1));
+                        Console.Write("Name:");
+                        students.FirstName = Console.ReadLine();
+                        Console.Write("Last name:");
+                        students.LastName = Console.ReadLine();
+                        Console.Write("Birth Date:");
+                        students.BirthDate = Console.ReadLine();
+                        Console.WriteLine("Choose person gender: 1 - Male; 2 - Female;");
+                        GenderSelection = Convert.ToInt32(Console.ReadLine());
+                        switch (GenderSelection)
+                        {
+                            case 1:
+                                students.PersonGender = true;
+                                break;
+                            case 2:
+                                students.PersonGender = false;
+                                break;
+                            default:
+                                throw new Exception("Incorrect input data");
+                        }
+
+                        Console.Write("Gradebook number:");
+                        students.GradebookNumber = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Course:");
+                        students.StudentСourse = Convert.ToInt32(Console.ReadLine());
+                        if (students.StudentСourse <= 0)
+                        {
+                            throw new Exception("Incorrect input data");
+                        }
+                        Console.Write("Average grade:");
+                        students.AverageGrades = Convert.ToInt32(Console.ReadLine());
+                        if (students.AverageGrades <= 0 || students.AverageGrades >= 100)
+                        {
+                            throw new Exception("Incorrect input data");
+                        }
+                        students.ID = StudentsList.IndexOf(students) + 1;
+                        students.SuccesfulCreating = true;
+                    }
+                }
+                StudentsList.Add(new Student());
+            }
+            catch (Exception e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message);
+                CreateStudents();
+            }
+
         }
+
+
 
         //OUTPUT CREATED 
         public void OutputCreatedTeachers()
         {
+            
             foreach (Teacher teachers in TeachersList)
+
             {
-                if (teachers.PersonGender) {
+                if (teachers.PersonGender)
+                {
                     SelectedGender = "Male";
-                } else {
+                }
+                else
+                {
                     SelectedGender = "Female";
                 }
                 Console.WriteLine(
@@ -143,13 +182,18 @@ namespace Academy_test_task_1
 
             }
         }
+
         public void OutputCreatedStudents()
         {
+
             foreach (Student students in StudentsList)
             {
-                if (students.PersonGender) {
+                if (students.PersonGender)
+                {
                     SelectedGender = "Male";
-                } else {
+                }
+                else
+                {
                     SelectedGender = "Female";
                 }
                 Console.WriteLine(
@@ -163,46 +207,46 @@ namespace Academy_test_task_1
                 "Average grades: " + students.AverageGrades + "\n");
             }
         }
-        
+
         //EDIT
         public void EditTeachers()
         {
             Console.Write("Enter teacher ID you want to edit:");
             IDSelection = Convert.ToInt32(Console.ReadLine());
             int countOfSubjects;
-            
+
             Console.Write("Name:");
-            TeachersList[IDSelection-1].FirstName = Console.ReadLine();
+            TeachersList[IDSelection - 1].FirstName = Console.ReadLine();
             Console.Write("Last name:");
-            TeachersList[IDSelection-1].LastName = Console.ReadLine();
+            TeachersList[IDSelection - 1].LastName = Console.ReadLine();
             Console.Write("Birth Date:");
-            TeachersList[IDSelection-1].BirthDate = Console.ReadLine();
+            TeachersList[IDSelection - 1].BirthDate = Console.ReadLine();
             Console.WriteLine("Choose person gender: 1 - Male; 2 - Female; 3 - Another");
             GenderSelection = Convert.ToInt32(Console.ReadLine());
             switch (GenderSelection)
             {
 
                 case 1:
-                    TeachersList[IDSelection-1].PersonGender = true;
+                    TeachersList[IDSelection - 1].PersonGender = true;
                     break;
                 case 2:
-                    TeachersList[IDSelection-1].PersonGender = false;
+                    TeachersList[IDSelection - 1].PersonGender = false;
                     break;
                 default:
                     throw new Exception("Incorrect input data");
             }
             Console.Write("Work Experience:");
-            TeachersList[IDSelection-1].WorkExperience = Convert.ToInt32(Console.ReadLine());
+            TeachersList[IDSelection - 1].WorkExperience = Convert.ToInt32(Console.ReadLine());
             Console.Write("Count of Subjects:");
             countOfSubjects = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Subjects:");
-            TeachersList[IDSelection-1].TeacherSubjects = new List<string>();
-            TeachersList[IDSelection-1].TeacherSubjects.Capacity = countOfSubjects;
+            TeachersList[IDSelection - 1].TeacherSubjects = new List<string>();
+            TeachersList[IDSelection - 1].TeacherSubjects.Capacity = countOfSubjects;
             for (int i = 0; i < countOfSubjects; i++)
             {
-                TeachersList[IDSelection-1].TeacherSubjects.Add(Console.ReadLine());
+                TeachersList[IDSelection - 1].TeacherSubjects.Add(Console.ReadLine());
             }
-            
+
 
         }
 
@@ -227,20 +271,22 @@ namespace Academy_test_task_1
                 default:
                     throw new Exception("Incorrect input data");
             }
-            
+
             Console.Write("Gradebook number:");
             StudentsList[IDSelection].GradebookNumber = Convert.ToInt32(Console.ReadLine());
             Console.Write("Course:");
             StudentsList[IDSelection].StudentСourse = Convert.ToInt32(Console.ReadLine());
-            if (StudentsList[IDSelection].StudentСourse <= 0) {
+            if (StudentsList[IDSelection].StudentСourse <= 0)
+            {
                 throw new Exception("Incorect input data");
             }
             Console.Write("Average grade:");
             StudentsList[IDSelection].AverageGrades = Convert.ToInt32(Console.ReadLine());
-            if (StudentsList[IDSelection].AverageGrades <= 0 || StudentsList[IDSelection].AverageGrades > 100) {
+            if (StudentsList[IDSelection].AverageGrades <= 0 || StudentsList[IDSelection].AverageGrades > 100)
+            {
                 throw new Exception("Incorect input data");
             }
-            
+
         }
 
         //DELETE_FUNC
@@ -248,37 +294,40 @@ namespace Academy_test_task_1
         {
             Console.Write("Enter teacher ID you want to delete:");
             IDSelection = Convert.ToInt32(Console.ReadLine());
-            TeachersList.Remove(TeachersList[IDSelection-1]);
-            foreach(Teacher teachers in TeachersList)
+            TeachersList.Remove(TeachersList[IDSelection - 1]);
+            foreach (Teacher teachers in TeachersList)
             {
                 teachers.ID = TeachersList.IndexOf(teachers) + 1;
             }
-            
-            
+
+
         }
 
         public void DeleteStudents()
         {
             Console.Write("Enter student ID you want to delete:");
             IDSelection = Convert.ToInt32(Console.ReadLine());
-            StudentsList.Remove(StudentsList[IDSelection-1]);
+            StudentsList.Remove(StudentsList[IDSelection - 1]);
             foreach (Student students in StudentsList)
             {
                 students.ID = StudentsList.IndexOf(students) + 1;
             }
-            
+
         }
 
         //OUTPUT_SORT_STUDENTS
-        public void SortStudents(List <Student> SortStudentsList)
+        public void SortStudents(List<Student> SortStudentsList)
         {
             var students = SortStudentsList.OrderBy(sorted => sorted.LastName);
 
             foreach (Student sorted in students)
             {
-                if (sorted.PersonGender) {
+                if (sorted.PersonGender)
+                {
                     SelectedGender = "Male";
-                } else {
+                }
+                else
+                {
                     SelectedGender = "Female";
                 }
                 Console.WriteLine(
@@ -294,8 +343,8 @@ namespace Academy_test_task_1
         }
 
         //TEST TASK LISTS
-        
-            List<Teacher> TestTeachers = new List<Teacher>()
+
+        public List<Teacher> TestTeachers = new List<Teacher>()
             {
 
                  new Teacher("Олег",    "Пiцун",    "21.04.1991",   true,    1, 4,       new List<string>()  {"subject1", "subject2" } ),
@@ -303,9 +352,9 @@ namespace Academy_test_task_1
                  new Teacher("Юрiй",    "Батько",   "10.10.1980",   true,    3, 10,      new List<string>()  {"subject5", "subject6" } ),
                  new Teacher("Iгор",    "Якименко", "11.12.1970",   true,    4, 13,      new List<string>()  {"subject7", "subject8" } )
             };
-        
-        
-           public List<Student> TestStudents = new List<Student>
+
+
+        public List<Student> TestStudents = new List<Student>
             {
                  new Student ("Валентин",    "Гарматюк",         "14.02.1998",     true  ,       1, 1,   4,     60   ),
                  new Student ("Олег",        "Момотюк",          "22.07.1998",     true  ,       2, 2,   4,     90   ),
@@ -319,15 +368,18 @@ namespace Academy_test_task_1
                  new Student ("Олександр",   "Коваль",           "15.09.1998",     true  ,       10, 10, 4,     77   ),
 
             };
-            
+
         //OUTPUT TEST OBJECTS
         public void OutputTestTeachers()
         {
             foreach (Teacher teachers in TestTeachers)
             {
-                if (teachers.PersonGender) {
+                if (teachers.PersonGender)
+                {
                     SelectedGender = "Male";
-                } else {
+                }
+                else
+                {
                     SelectedGender = "Female";
                 }
                 Console.WriteLine(
@@ -345,7 +397,8 @@ namespace Academy_test_task_1
                 Console.WriteLine("\n");
             }
         }
-       
     }
 }
+
+
  

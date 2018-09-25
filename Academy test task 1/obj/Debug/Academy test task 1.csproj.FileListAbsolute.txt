@@ -10,3 +10,10 @@ C:\Users\Malverik\Documents\Visual Studio 2015\Projects\Academy test task 1\Acad
 C:\Users\Malverik\Documents\Visual Studio 2015\Projects\Academy test task 1\Academy_test_task_1\Academy test task 1\bin\Debug\Academy test task 1.exe
 C:\Users\Malverik\Documents\Visual Studio 2015\Projects\Academy test task 1\Academy_test_task_1\Academy test task 1\bin\Debug\Academy test task 1.pdb
 C:\Users\Malverik\Documents\Visual Studio 2015\Projects\Academy test task 1\Academy_test_task_1\Academy test task 1\obj\Debug\Academy test task 1.csprojResolveAssemblyReference.cache
+C:\Users\Valen\Documents\GitHub\Academy_test_task_1\Academy test task 1\obj\Debug\Academy test task 1.csprojAssemblyReference.cache
+C:\Users\Valen\Documents\GitHub\Academy_test_task_1\Academy test task 1\obj\Debug\Academy test task 1.csproj.CoreCompileInputs.cache
+C:\Users\Valen\Documents\GitHub\Academy_test_task_1\Academy test task 1\obj\Debug\Academy test task 1.exe
+C:\Users\Valen\Documents\GitHub\Academy_test_task_1\Academy test task 1\obj\Debug\Academy test task 1.pdb
+C:\Users\Valen\Documents\GitHub\Academy_test_task_1\Academy test task 1\bin\Debug\Academy test task 1.exe.config
+C:\Users\Valen\Documents\GitHub\Academy_test_task_1\Academy test task 1\bin\Debug\Academy test task 1.exe
+C:\Users\Valen\Documents\GitHub\Academy_test_task_1\Academy test task 1\bin\Debug\Academy test task 1.pdb

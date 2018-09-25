@@ -23,6 +23,7 @@ namespace Academy_test_task_1
             StudentСourse = StudentCourse;
             this.AverageGrades = AverageGrades;
         }
+
         public Student ()
         {
 
