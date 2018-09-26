@@ -149,37 +149,38 @@ namespace Academy_test_task_1
 
         }
 
-
-
         //OUTPUT CREATED 
         public void OutputCreatedTeachers()
         {
-            
+
             foreach (Teacher teachers in TeachersList)
 
             {
-                if (teachers.PersonGender)
+                if (teachers.ID != 0)
                 {
-                    SelectedGender = "Male";
-                }
-                else
-                {
-                    SelectedGender = "Female";
-                }
-                Console.WriteLine(
-                 "\nName: " + teachers.FirstName + "\n" +
-                 "Last name : " + teachers.LastName + "\n" +
-                 "Birth date :" + teachers.BirthDate + "\n" +
-                 "Gender : " + SelectedGender + "\n" +
-                 "Teacher ID : " + teachers.ID + "\n" +
-                 "Work experience: " + teachers.WorkExperience + "\n" +
-                 "Subjects list: ");
-                foreach (var subjects in teachers.TeacherSubjects)
-                {
-                    Console.WriteLine(subjects);
-                }
-                Console.WriteLine("\n");
+                    if (teachers.PersonGender)
+                    {
+                        SelectedGender = "Male";
+                    }
+                    else
+                    {
+                        SelectedGender = "Female";
+                    }
+                    Console.WriteLine(
+                     "\nName: " + teachers.FirstName + "\n" +
+                     "Last name : " + teachers.LastName + "\n" +
+                     "Birth date :" + teachers.BirthDate + "\n" +
+                     "Gender : " + SelectedGender + "\n" +
+                     "Teacher ID : " + teachers.ID + "\n" +
+                     "Work experience: " + teachers.WorkExperience + "\n" +
+                     "Subjects list: ");
+                    foreach (var subjects in teachers.TeacherSubjects)
+                    {
+                        Console.WriteLine(subjects);
+                    }
+                    Console.WriteLine("\n");
 
+                }
             }
         }
 
@@ -188,23 +189,26 @@ namespace Academy_test_task_1
 
             foreach (Student students in StudentsList)
             {
-                if (students.PersonGender)
+                if (students.ID != 0)
                 {
-                    SelectedGender = "Male";
+                    if (students.PersonGender)
+                    {
+                        SelectedGender = "Male";
+                    }
+                    else
+                    {
+                        SelectedGender = "Female";
+                    }
+                    Console.WriteLine(
+                    "Name: " + students.FirstName + "\n" +
+                    "Last Name: " + students.LastName + "\n" +
+                    "Birth Date: " + students.BirthDate + "\n" +
+                    "Gender: " + SelectedGender + "\n" +
+                    "Student ID: " + students.ID + "\n" +
+                    "Gradebook number: " + students.GradebookNumber + "\n" +
+                    "Course: " + students.StudentСourse + "\n" +
+                    "Average grades: " + students.AverageGrades + "\n");
                 }
-                else
-                {
-                    SelectedGender = "Female";
-                }
-                Console.WriteLine(
-                "Name: " + students.FirstName + "\n" +
-                "Last Name: " + students.LastName + "\n" +
-                "Birth Date: " + students.BirthDate + "\n" +
-                "Gender: " + SelectedGender + "\n" +
-                "Student ID: " + students.ID + "\n" +
-                "Gradebook number: " + students.GradebookNumber + "\n" +
-                "Course: " + students.StudentСourse + "\n" +
-                "Average grades: " + students.AverageGrades + "\n");
             }
         }
 
@@ -352,7 +356,6 @@ namespace Academy_test_task_1
                  new Teacher("Юрiй",    "Батько",   "10.10.1980",   true,    3, 10,      new List<string>()  {"subject5", "subject6" } ),
                  new Teacher("Iгор",    "Якименко", "11.12.1970",   true,    4, 13,      new List<string>()  {"subject7", "subject8" } )
             };
-
 
         public List<Student> TestStudents = new List<Student>
             {
