@@ -100,6 +100,7 @@ namespace Academy_test_task_1
                             break;
                     }
                 }
+
                 catch (Exception ex)
                 {
 
@@ -111,9 +112,9 @@ namespace Academy_test_task_1
             }
 
         }
-
     }
 }
+
 
 
 
