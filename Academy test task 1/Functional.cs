@@ -14,7 +14,6 @@ namespace Academy_test_task_1
         //GLOBAL LISTS
         public List<Teacher> TeachersList = new List<Teacher>();
         public List<Student> StudentsList = new List<Student>();
-        
 
         int IDSelection;
         int GenderSelection;
@@ -144,13 +143,13 @@ namespace Academy_test_task_1
             catch (Exception e)
             {
                 Console.Clear();
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message + "\nTry again:");
                 CreateStudents();
             }
 
         }
 
-       //EDIT
+        //EDIT
         public void EditTeachers()
         {
             Console.Write("Enter teacher ID you want to edit:");
@@ -256,34 +255,9 @@ namespace Academy_test_task_1
             }
 
         }
-
-        //TEST TASK LISTS
-        public List<Teacher> TestTeachers = new List<Teacher>()
-            {
-
-                 new Teacher("Олег",    "Пiцун",    "21.04.1991",   true,    1, 4,       new List<string>()  {"subject1", "subject2" } ),
-                 new Teacher("Богдан",  "Маслияк",  "15.07.1960",   true,    2, 14,      new List<string>()  {"subject3", "subject4" } ),
-                 new Teacher("Юрiй",    "Батько",   "10.10.1980",   true,    3, 10,      new List<string>()  {"subject5", "subject6" } ),
-                 new Teacher("Iгор",    "Якименко", "11.12.1970",   true,    4, 13,      new List<string>()  {"subject7", "subject8" } )
-            };
-
-        public List<Student> TestStudents = new List<Student>
-            {
-                 new Student ("Валентин",    "Гарматюк",         "14.02.1998",     true  ,       1, 1,   4,     60   ),
-                 new Student ("Олег",        "Момотюк",          "22.07.1998",     true  ,       2, 2,   4,     90   ),
-                 new Student ("Вiталiй",     "Кухарук",          "25.08.1998",     true  ,       3, 3,   4,     60   ),
-                 new Student ("Роман",       "Капустинський",    "20.06.1998",     true  ,       4, 4,   4,     85   ),
-                 new Student ("Михайло",     "Хомолюк",          "10.10.1998",     true  ,       5, 5,   4,     75   ),
-                 new Student ("Роман",       "Сидорчук",         "10.12.1998",     true  ,       6, 6,   4,     60   ),
-                 new Student ("Зоряна",      "Щирба",            "13.05.1998",     false ,       7, 7,   4,     89   ),
-                 new Student ("Юрiй",        "Радовець",         "29.02.1997",     false ,       8, 8,   4,    100   ),
-                 new Student ("Роман",       "Снєжик",           "09.03.1998",     true  ,       9, 9,   4,     95   ),
-                 new Student ("Олександр",   "Коваль",           "15.09.1998",     true  ,       10, 10, 4,     77   ),
-
-            };
-
+     
         //OUTPUT
-        public void OutputTeachers(List <Teacher> OutputTeachers)
+        public void OutputTeachers(List<Teacher> OutputTeachers)
         {
             StringBuilder OutputStringBuilder = new StringBuilder();
             foreach (Teacher teachers in OutputTeachers)
@@ -307,7 +281,7 @@ namespace Academy_test_task_1
                         OutputStringBuilder.Append($"{subjects}\n");
                     }
                 }
-                
+
             }
             Console.WriteLine(OutputStringBuilder + "\n");
         }
@@ -340,6 +314,3 @@ namespace Academy_test_task_1
         }
     }
 }
-
-
- 
