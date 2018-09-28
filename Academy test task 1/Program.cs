@@ -35,13 +35,13 @@ namespace Academy_test_task_1
                     {
 
                         case 1:
-                            ProgramFunctional.OutputTestTeachers();
+                            ProgramFunctional.OutputTeachers(ProgramFunctional.TestTeachers);
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
                             break;
                         case 2:
-                            ProgramFunctional.SortStudents(ProgramFunctional.TestStudents);
+                            ProgramFunctional.OutputSortedStudents(ProgramFunctional.TestStudents);
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
@@ -59,14 +59,14 @@ namespace Academy_test_task_1
                             break;
 
                         case 5:
-                            ProgramFunctional.OutputCreatedTeachers();
+                            ProgramFunctional.OutputTeachers(ProgramFunctional.TeachersList);
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();
                             break;
 
                         case 6:
-                            ProgramFunctional.SortStudents(ProgramFunctional.StudentsList);
+                            ProgramFunctional.OutputSortedStudents(ProgramFunctional.StudentsList);
                             Console.WriteLine("Press \"Enter\" to continue");
                             Console.ReadLine();
                             Console.Clear();

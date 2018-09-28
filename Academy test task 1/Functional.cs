@@ -14,6 +14,7 @@ namespace Academy_test_task_1
         //GLOBAL LISTS
         public List<Teacher> TeachersList = new List<Teacher>();
         public List<Student> StudentsList = new List<Student>();
+        
 
         int IDSelection;
         int GenderSelection;
@@ -149,70 +150,7 @@ namespace Academy_test_task_1
 
         }
 
-        //OUTPUT CREATED 
-        public void OutputCreatedTeachers()
-        {
-
-            foreach (Teacher teachers in TeachersList)
-
-            {
-                if (teachers.ID != 0)
-                {
-                    if (teachers.PersonGender)
-                    {
-                        SelectedGender = "Male";
-                    }
-                    else
-                    {
-                        SelectedGender = "Female";
-                    }
-                    Console.WriteLine(
-                     "\nName: " + teachers.FirstName + "\n" +
-                     "Last name : " + teachers.LastName + "\n" +
-                     "Birth date :" + teachers.BirthDate + "\n" +
-                     "Gender : " + SelectedGender + "\n" +
-                     "Teacher ID : " + teachers.ID + "\n" +
-                     "Work experience: " + teachers.WorkExperience + "\n" +
-                     "Subjects list: ");
-                    foreach (var subjects in teachers.TeacherSubjects)
-                    {
-                        Console.WriteLine(subjects);
-                    }
-                    Console.WriteLine("\n");
-
-                }
-            }
-        }
-
-        public void OutputCreatedStudents()
-        {
-
-            foreach (Student students in StudentsList)
-            {
-                if (students.ID != 0)
-                {
-                    if (students.PersonGender)
-                    {
-                        SelectedGender = "Male";
-                    }
-                    else
-                    {
-                        SelectedGender = "Female";
-                    }
-                    Console.WriteLine(
-                    "Name: " + students.FirstName + "\n" +
-                    "Last Name: " + students.LastName + "\n" +
-                    "Birth Date: " + students.BirthDate + "\n" +
-                    "Gender: " + SelectedGender + "\n" +
-                    "Student ID: " + students.ID + "\n" +
-                    "Gradebook number: " + students.GradebookNumber + "\n" +
-                    "Course: " + students.StudentСourse + "\n" +
-                    "Average grades: " + students.AverageGrades + "\n");
-                }
-            }
-        }
-
-        //EDIT
+       //EDIT
         public void EditTeachers()
         {
             Console.Write("Enter teacher ID you want to edit:");
@@ -319,35 +257,7 @@ namespace Academy_test_task_1
 
         }
 
-        //OUTPUT_SORT_STUDENTS
-        public void SortStudents(List<Student> SortStudentsList)
-        {
-            var students = SortStudentsList.OrderBy(sorted => sorted.LastName);
-
-            foreach (Student sorted in students)
-            {
-                if (sorted.PersonGender)
-                {
-                    SelectedGender = "Male";
-                }
-                else
-                {
-                    SelectedGender = "Female";
-                }
-                Console.WriteLine(
-               "Last Name: " + sorted.LastName + "\n" +
-               "Name: " + sorted.FirstName + "\n" +
-               "Birth Date: " + sorted.BirthDate + "\n" +
-               "Gender : " + SelectedGender + "\n" +
-               "Student ID: " + sorted.ID + "\n" +
-               "Gradebook number: " + sorted.GradebookNumber + "\n" +
-               "Course: " + sorted.StudentСourse + "\n" +
-               "Average grades: " + sorted.AverageGrades + "\n");
-            }
-        }
-
         //TEST TASK LISTS
-
         public List<Teacher> TestTeachers = new List<Teacher>()
             {
 
@@ -372,33 +282,61 @@ namespace Academy_test_task_1
 
             };
 
-        //OUTPUT TEST OBJECTS
-        public void OutputTestTeachers()
+        //OUTPUT
+        public void OutputTeachers(List <Teacher> OutputTeachers)
         {
-            foreach (Teacher teachers in TestTeachers)
+            StringBuilder OutputStringBuilder = new StringBuilder();
+            foreach (Teacher teachers in OutputTeachers)
             {
-                if (teachers.PersonGender)
+                if (teachers.ID != 0)
                 {
-                    SelectedGender = "Male";
+                    if (teachers.PersonGender)
+                    {
+                        SelectedGender = "Male";
+                    }
+                    else
+                    {
+                        SelectedGender = "Female";
+                    }
+
+                    OutputStringBuilder.Append(
+                        $"\nName: { teachers.FirstName} \nLast name: {teachers.LastName} \nBirth Date: {teachers.BirthDate} " +
+                        $"\nGender: {SelectedGender} \nTeacher ID: {teachers.ID} \nWork Experience: {teachers.WorkExperience} \nSubjects list:\n");
+                    foreach (var subjects in teachers.TeacherSubjects)
+                    {
+                        OutputStringBuilder.Append($"{subjects}\n");
+                    }
                 }
-                else
-                {
-                    SelectedGender = "Female";
-                }
-                Console.WriteLine(
-                "Name: " + teachers.FirstName + "\n" +
-                "Last name : " + teachers.LastName + "\n" +
-                "Birth date :" + teachers.BirthDate + "\n" +
-                "Gender : " + SelectedGender + "\n" +
-                "Teacher ID : " + teachers.ID + "\n" +
-                "Work experience: " + teachers.WorkExperience + "\n" +
-                "Subjects list: ");
-                foreach (var subjects in teachers.TeacherSubjects)
-                {
-                    Console.WriteLine(subjects);
-                }
-                Console.WriteLine("\n");
+                
             }
+            Console.WriteLine(OutputStringBuilder + "\n");
+        }
+
+        //SORTED STUDENTS
+        public void OutputSortedStudents(List<Student> SortStudentsList)
+        {
+            StringBuilder OutputStringBuilder = new StringBuilder();
+            var students = SortStudentsList.OrderBy(sorted => sorted.LastName);
+
+            foreach (Student sorted in students)
+            {
+                if (sorted.ID != 0)
+                {
+                    if (sorted.PersonGender)
+                    {
+                        SelectedGender = "Male";
+                    }
+                    else
+                    {
+                        SelectedGender = "Female";
+                    }
+                    OutputStringBuilder.Append(
+                        $"\nLast Name: {sorted.LastName} \nFirst Name: {sorted.FirstName} \nBirth Date: {sorted.BirthDate} \nGender: {SelectedGender}" +
+                        $"\nStudent ID: {sorted.ID} \nGradebook: {sorted.GradebookNumber} \nCourse: {sorted.StudentСourse} \nAverage grades: {sorted.AverageGrades}\n");
+                }
+
+            }
+            Console.WriteLine($"{OutputStringBuilder}\n");
         }
     }
 }
