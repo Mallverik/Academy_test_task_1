@@ -11,7 +11,7 @@ namespace Academy_test_task_1
         public int WorkExperience { get; set; }
         public List<string> TeacherSubjects { get; set; }
 
-        public Teacher(String FirstName, String LastName, String BirthDate, bool PersonGender, int ID, int WorkExperience, List<string> TeacherSubjects)
+        public Teacher(String FirstName, String LastName, String BirthDate, Gender PersonGender, int ID, int WorkExperience, List<string> TeacherSubjects)
         {
             this.FirstName = FirstName;
             this.LastName = LastName;

@@ -12,7 +12,7 @@ namespace Academy_test_task_1
         public int StudentСourse { get; set; }
         public int AverageGrades { get; set; }
         
-        public Student(String FirstName, String LastName, String BirthDate, bool PersonGender, int ID, int GradebookNumber , int StudentCourse, int AverageGrades)
+        public Student(String FirstName, String LastName, String BirthDate, Gender PersonGender, int ID, int GradebookNumber , int StudentCourse, int AverageGrades)
         {
             this.FirstName = FirstName;
             this.LastName = LastName;

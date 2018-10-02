@@ -32,7 +32,6 @@ namespace Academy_test_task_1
                     TeachersList.Add(new Teacher());
                 }
 
-
                 foreach (Teacher teachers in TeachersList)
                 {
                     if (!teachers.SuccesfulCreating)
@@ -49,10 +48,10 @@ namespace Academy_test_task_1
                         switch (GenderSelection)
                         {
                             case 1:
-                                teachers.PersonGender = true;
+                                teachers.PersonGender = Gender.Male;
                                 break;
                             case 2:
-                                teachers.PersonGender = false;
+                                teachers.PersonGender = Gender.Female;
                                 break;
                             default:
                                 throw new Exception("Incorrect input data");
@@ -111,10 +110,10 @@ namespace Academy_test_task_1
                         switch (GenderSelection)
                         {
                             case 1:
-                                students.PersonGender = true;
+                                students.PersonGender = Gender.Male;
                                 break;
                             case 2:
-                                students.PersonGender = false;
+                                students.PersonGender = Gender.Female;
                                 break;
                             default:
                                 throw new Exception("Incorrect input data");
@@ -168,10 +167,10 @@ namespace Academy_test_task_1
             {
 
                 case 1:
-                    TeachersList[IDSelection - 1].PersonGender = true;
+                    TeachersList[IDSelection - 1].PersonGender = Gender.Male;
                     break;
                 case 2:
-                    TeachersList[IDSelection - 1].PersonGender = false;
+                    TeachersList[IDSelection - 1].PersonGender = Gender.Female;
                     break;
                 default:
                     throw new Exception("Incorrect input data");
@@ -204,10 +203,10 @@ namespace Academy_test_task_1
             switch (GenderSelection)
             {
                 case 1:
-                    StudentsList[IDSelection].PersonGender = true;
+                    StudentsList[IDSelection].PersonGender = Gender.Male;
                     break;
                 case 2:
-                    StudentsList[IDSelection].PersonGender = false;
+                    StudentsList[IDSelection].PersonGender = Gender.Female;
                     break;
                 default:
                     throw new Exception("Incorrect input data");
@@ -264,18 +263,13 @@ namespace Academy_test_task_1
             {
                 if (teachers.ID != 0)
                 {
-                    if (teachers.PersonGender)
-                    {
-                        SelectedGender = "Male";
-                    }
-                    else
-                    {
-                        SelectedGender = "Female";
-                    }
-
-                    OutputStringBuilder.Append(
-                        $"\nName: { teachers.FirstName} \nLast name: {teachers.LastName} \nBirth Date: {teachers.BirthDate} " +
-                        $"\nGender: {SelectedGender} \nTeacher ID: {teachers.ID} \nWork Experience: {teachers.WorkExperience} \nSubjects list:\n");
+                    OutputStringBuilder.Append($"\nName: {teachers.FirstName}\n");
+                    OutputStringBuilder.Append($"Last name: {teachers.LastName}\n");
+                    OutputStringBuilder.Append($"Birth date: {teachers.BirthDate}\n");
+                    OutputStringBuilder.Append($"Gender: {teachers.PersonGender}\n");
+                    OutputStringBuilder.Append($"Teacher ID :{teachers.ID}\n");
+                    OutputStringBuilder.Append($"Work Experience :{teachers.WorkExperience}\n");
+                    OutputStringBuilder.Append($"Subjects list:\n");
                     foreach (var subjects in teachers.TeacherSubjects)
                     {
                         OutputStringBuilder.Append($"{subjects}\n");
@@ -296,17 +290,14 @@ namespace Academy_test_task_1
             {
                 if (sorted.ID != 0)
                 {
-                    if (sorted.PersonGender)
-                    {
-                        SelectedGender = "Male";
-                    }
-                    else
-                    {
-                        SelectedGender = "Female";
-                    }
-                    OutputStringBuilder.Append(
-                        $"\nLast Name: {sorted.LastName} \nFirst Name: {sorted.FirstName} \nBirth Date: {sorted.BirthDate} \nGender: {SelectedGender}" +
-                        $"\nStudent ID: {sorted.ID} \nGradebook: {sorted.GradebookNumber} \nCourse: {sorted.StudentСourse} \nAverage grades: {sorted.AverageGrades}\n");
+                    OutputStringBuilder.Append($"\nName: {sorted.FirstName}\n");
+                    OutputStringBuilder.Append($"Last name: {sorted.LastName}\n");
+                    OutputStringBuilder.Append($"Birth date: {sorted.BirthDate}\n");
+                    OutputStringBuilder.Append($"Gender: {sorted.PersonGender}\n");
+                    OutputStringBuilder.Append($"Students ID :{sorted.ID}\n");
+                    OutputStringBuilder.Append($"Course: {sorted.StudentСourse}\n");
+                    OutputStringBuilder.Append($"Gradebook number: {sorted.GradebookNumber}\n");
+                    OutputStringBuilder.Append($"Average grades: {sorted.AverageGrades}\n");
                 }
 
             }
